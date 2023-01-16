@@ -181,22 +181,18 @@ def SolvePuzzle(PuzzleGrid, Puzzle, Answer):
             if InputError:
                 print("Invalid input")
             else:
-                if PuzzleGrid[Row][Column] == EMPTY_STRING:
+                if PuzzleGrid[Row][Column] == SPACE:
                     PuzzleGrid[Row][Column] = Digit
                     Answer[2] = str(int(Answer[2]) + 1)
                     Answer[int(Answer[2]) + 2] = CellInfo
                     DisplayGrid(PuzzleGrid)
                 else:
-
+                    print("Cell is full")
             print("Enter row column digit: ")
             print("(Press Enter to stop)")
             CellInfo = input()
     return PuzzleGrid, Answer
 
-
-def FirstTime(PuzzleGrid, Answer, Puzzle, Row, Column):
-    if PuzzleGrid[0][0] =='X':
-        PuzzleGrid2 =
 
 def DisplayMenu():
     print()

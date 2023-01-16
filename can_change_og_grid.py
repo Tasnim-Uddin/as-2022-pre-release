@@ -155,6 +155,7 @@ def DisplayGrid(PuzzleGrid):
 
 
 def SolvePuzzle(PuzzleGrid, Puzzle, Answer):
+    OgGrid = PuzzleGrid
     DisplayGrid(PuzzleGrid)
     if PuzzleGrid[0][0] != 'X':
         print("No puzzle loaded")
@@ -181,13 +182,13 @@ def SolvePuzzle(PuzzleGrid, Puzzle, Answer):
             if InputError:
                 print("Invalid input")
             else:
-                if PuzzleGrid[Row][Column] == EMPTY_STRING:
+                if (PuzzleGrid[Row][Column] == OgGrid[Row][Column]) and (OgGrid[Row][Column] != SPACE):
+                    print("Can't change original grid")
+                elif PuzzleGrid[Row][Column] == SPACE:
                     PuzzleGrid[Row][Column] = Digit
                     Answer[2] = str(int(Answer[2]) + 1)
                     Answer[int(Answer[2]) + 2] = CellInfo
                     DisplayGrid(PuzzleGrid)
-                else:
-                    print("Cell is full")
             print("Enter row column digit: ")
             print("(Press Enter to stop)")
             CellInfo = input()
